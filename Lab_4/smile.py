@@ -22,16 +22,7 @@ while not done:
             done = True
 
     sc.fill(WHITE)
-    '''
 
-    pygame.draw.line(screen, BLUE, [0, 50], [100, 50], 15)
-    pygame.draw.line(screen, BLUE, [400, 50], [400, 150], 5)
-
-    pygame.draw.lines(screen, BLUE, False, [[270, 150], [270, 50], [320, 50], [320, 150]])
-
-    pygame.draw.ellipse(screen, BLUE, [50, 70, 100, 60], 5)
-
-'''
     #Лицо
     pygame.draw.circle(sc, YELLOW, (250, 250), 200)
     pygame.draw.circle(sc, BLACK, (250, 250), 201, 1)
