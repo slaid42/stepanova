@@ -7,37 +7,34 @@ RED = (255, 0, 0)
 YELLOW = (255, 255, 0)
 WHITE = (255, 255, 255)
 pygame.init()
-sc = pygame.display.set_mode([500, 500])
+sc = pygame.display.set_mode([1500, 800])
+sc.fill(WHITE)
 
 pygame.display.set_caption("Angry smile")
 
-done = False
+done = 60
 clock = pygame.time.Clock()
 
-while not done:
+while done > 0:
     clock.tick(10)
-
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            done = True
-
-    sc.fill(WHITE)
+        
 
     #Лицо
-    pygame.draw.circle(sc, YELLOW, (250, 250), 200)
-    pygame.draw.circle(sc, BLACK, (250, 250), 201, 1)
+    pygame.draw.circle(sc, YELLOW, (250 + done, 250 + done), 200)
+    pygame.draw.circle(sc, BLACK, (250 + done, 250 + done), 201, 1)
     
     #Глаза
-    pygame.draw.circle(sc, RED, (35*5, 35*5), 5*5)
-    pygame.draw.circle(sc, BLACK, (35*5, 35*5), 5*5+1, 1)
-    pygame.draw.circle(sc, BLACK, (35*5, 35*5), 2*5)
+    pygame.draw.circle(sc, RED, (35*5 + done, 35*5 + done), 5*5)
+    pygame.draw.circle(sc, BLACK, (35*5 + done, 35*5 + done), 5*5+1, 1)
+    pygame.draw.circle(sc, BLACK, (35*5 + done, 35*5 + done), 2*5)
  
-    pygame.draw.circle(sc, RED, (65*5, 35*5), 4*5)
-    pygame.draw.circle(sc, BLACK, (65*5, 35*5), 4*5+1, 1)
-    pygame.draw.circle(sc, BLACK, (65*5, 35*5), 2*5)
+    pygame.draw.circle(sc, RED, (65*5 + done, 35*5 + done), 4*5)
+    pygame.draw.circle(sc, BLACK, (65*5 + done, 35*5 + done), 4*5+1, 1)
+    pygame.draw.circle(sc, BLACK, (65*5 + done, 35*5 + done), 2*5)
 
     #Рот
-    pygame.draw.line(sc, BLACK, [35*5, 65*5], [65*5, 65*5], 25) 
+    pygame.draw.line(sc, BLACK, [35*5 + done, 65*5 + done], 
+                     [65*5 + done, 65*5 + done], 25) 
     
     #Брови
     surface = pygame.Surface([40*5, 20*5], pygame.SRCALPHA)
@@ -51,7 +48,7 @@ while not done:
     sc.blit(surface_rot, [56*5, 15*5])
 
     pygame.display.flip()
-
+    done -= 1
 
 pygame.quit()
 
